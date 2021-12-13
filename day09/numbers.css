@@ -1,0 +1,15 @@
+div {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+img {
+    display: block;
+    height: 30vh;
+    border: 2px solid red;
+    padding: 20px;
+    margin-left: 3vw;
+}

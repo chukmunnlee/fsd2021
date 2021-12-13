@@ -1,0 +1,17 @@
+body {
+    background-color: lightblue;
+}
+
+.my-para {
+    font-size: 1.5em;
+    text-decoration: line-through;
+}
+
+.my-h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.underline-text {
+    text-decoration: underline;
+}
