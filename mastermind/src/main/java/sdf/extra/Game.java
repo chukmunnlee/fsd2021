@@ -7,34 +7,48 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 import sdf.extra.Constants.CodePeg;
+import sdf.extra.Constants.KeyPeg;
 
 public class Game {
 
     private final CodeRow code;
     private final List<GuessRow> guesses = new LinkedList<>();
-    private boolean completed = false;
+    private final boolean duplicateColor;
+    private boolean won = false;
 
     public Game() {
         this(false);
     }
 
     public Game(boolean dup) {
+        duplicateColor = dup;
         if (dup)
             code = createDuplicateCode();
         else
             code = createNonDuplicateCode();
     }
 
+    public boolean hasDuplicateColor() {
+        return duplicateColor;
+    }
+
     public boolean hasEnded() {
-        return completed || (guesses.size() >= Constants.ROWS);
+        return won || (guesses.size() >= Constants.ROWS);
+    }
+
+    public boolean hasWon() {
+        return (won);
     }
 
     public Integer currentRow() {
         return guesses.size() + 1;
     }
 
-    public void makeGuess(GuessRow guessRow) {
+    public List<KeyPeg> makeGuess(GuessRow guessRow) {
         this.guesses.add(guessRow);
+        List<KeyPeg> result = Adjudicator.evaluate(guessRow, code);
+        won = Utils.countKeyPegs(result, KeyPeg.Black) == Constants.GUESS_NUM;
+        return result;
     }
 
     public Row revealCode() {
