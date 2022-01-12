@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Todo</title>
+        <link rel="stylesheet" href="/bootstrap.min.css">
+    </head>
+    <body>
+
+        <div class="container"> <!-- container -->
+
+            <div class="row mt-3 mb-2">
+                <div class="col">
+                    <h1>My TODO</h1>
+                </div>
+                <div class="col">
+                    <h1>My TODO</h1>
+                </div>
+                <div class="col">
+                    <h1>My TODO</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+
+                    <form method="POST" action="/task">
+                        <input type="hidden" name="contents" data-th-value="${contents}">
+                        <div class="mb-2 input-group">
+                            <!--
+                            <label for="taskName" class="form-label">Task Name:</label>
+                            -->
+                            <input type="text" name="taskName" id="taskName" 
+                                    placeholder="Please enter a task" class="form-control">
+
+                            <button type="submit" class="btn btn-warning" 
+                                    formmethod="POST"  formaction="/task/save">
+                                Save Task
+                            </button>
+
+                            <button type="submit" class="btn btn-primary">Add Task</button>
+
+                        </div>
+
+                        <!--
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary btn-lg">Add Task</button>
+                        </div>
+                        -->
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="row" data-th-if="${contents == null}">
+                <div class="col">
+                    <h2 data-th-if="${contents == null}">You seem to be quite free</h2>
+                </div>
+            </div>
+
+            <div class="row" data-th-if="${contents != null}">
+                <div class="col">
+                    <h2>List of your tasks</h2>
+                    <ul class="list-group">
+                        <li data-th-each="t: ${tasks}" class="list-group-item">
+                            <span data-th-text="${t}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> <!-- container -->
+        
+    </body>
+</html>
