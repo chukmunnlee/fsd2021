@@ -1,0 +1,27 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/opt/tmp/fsd2021/day17-fortune/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+COOKIES	src/main/java/ibf2021/workshop/fortune/day17fortune/services/FortuneCookie.java	/^	public static final String[] COOKIES = { "With integrity and consistency -- your credits are pi/;"	f	class:FortuneCookie
+CookiesRestController	src/main/java/ibf2021/workshop/fortune/day17fortune/controllers/CookiesRestController.java	/^public class CookiesRestController {$/;"	c
+Day17FortuneApplication	src/main/java/ibf2021/workshop/fortune/day17fortune/Day17FortuneApplication.java	/^public class Day17FortuneApplication {$/;"	c
+Day17FortuneApplicationTests	src/test/java/ibf2021/workshop/fortune/day17fortune/Day17FortuneApplicationTests.java	/^class Day17FortuneApplicationTests {$/;"	c
+FortuneCookie	src/main/java/ibf2021/workshop/fortune/day17fortune/services/FortuneCookie.java	/^public class FortuneCookie {$/;"	c
+contextLoads	src/test/java/ibf2021/workshop/fortune/day17fortune/Day17FortuneApplicationTests.java	/^	void contextLoads() {$/;"	m	class:Day17FortuneApplicationTests
+fortuneCookie	src/main/java/ibf2021/workshop/fortune/day17fortune/controllers/CookiesRestController.java	/^	private FortuneCookie fortuneCookie;$/;"	f	class:CookiesRestController	file:
+getCookie	src/main/java/ibf2021/workshop/fortune/day17fortune/services/FortuneCookie.java	/^	public String getCookie() {$/;"	m	class:FortuneCookie
+getCookies	src/main/java/ibf2021/workshop/fortune/day17fortune/controllers/CookiesRestController.java	/^	public ResponseEntity<String>  getCookies($/;"	m	class:CookiesRestController
+getCookies	src/main/java/ibf2021/workshop/fortune/day17fortune/services/FortuneCookie.java	/^	public List<String> getCookies(Integer num) {$/;"	m	class:FortuneCookie
+ibf2021.workshop.fortune.day17fortune	src/main/java/ibf2021/workshop/fortune/day17fortune/Day17FortuneApplication.java	/^package ibf2021.workshop.fortune.day17fortune;$/;"	p
+ibf2021.workshop.fortune.day17fortune	src/test/java/ibf2021/workshop/fortune/day17fortune/Day17FortuneApplicationTests.java	/^package ibf2021.workshop.fortune.day17fortune;$/;"	p
+ibf2021.workshop.fortune.day17fortune.controllers	src/main/java/ibf2021/workshop/fortune/day17fortune/controllers/CookiesRestController.java	/^package ibf2021.workshop.fortune.day17fortune.controllers;$/;"	p
+ibf2021.workshop.fortune.day17fortune.services	src/main/java/ibf2021/workshop/fortune/day17fortune/services/FortuneCookie.java	/^package ibf2021.workshop.fortune.day17fortune.services;$/;"	p
+main	src/main/java/ibf2021/workshop/fortune/day17fortune/Day17FortuneApplication.java	/^	public static void main(String[] args) {$/;"	m	class:Day17FortuneApplication
+rand	src/main/java/ibf2021/workshop/fortune/day17fortune/services/FortuneCookie.java	/^	private final Random rand =  new SecureRandom();$/;"	f	class:FortuneCookie	file:
