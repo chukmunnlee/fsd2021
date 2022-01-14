@@ -18,6 +18,36 @@
             </div>
         </div>
 
+        <div class="row" data-th-if="${#lists.isEmpty(weather)}">
+            <div class="col">
+                <h2>No weather details found</h2>
+            </div>
+        </div>
+
+        <div class="row" data-th-each="w : ${weather}" data-th-if="${!#lists.isEmpty(weather)}">
+            <div class="col-2">
+                <img data-th-src="${w.icon}" class="img-thumbnail">
+            </div>
+            <div class="col-8">
+                <table class="table table-hover">
+                    <tr>
+                        <td>Description</td>
+                        <td>
+                            <strong data-th-text="${w.main}"></strong>,
+                            <span data-th-text="${w.description}"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Temperature</td>
+                        <td>
+                            <span data-th-text="${w.temperature}"></span>C
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
         <div class="row">
             <div class="col d-flex justify-content-end">
                 <a href="/" class="btn btn-primary btn-lg">Back</a>

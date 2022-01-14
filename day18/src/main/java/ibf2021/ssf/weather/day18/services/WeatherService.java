@@ -1,10 +1,8 @@
 package ibf2021.ssf.weather.day18.services;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +21,6 @@ import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
-import jakarta.json.JsonValue;
 
 import static ibf2021.ssf.weather.day18.Constants.*;
 
@@ -36,17 +33,20 @@ public class WeatherService {
 
     public WeatherService() {
         String k = System.getenv(ENV_OPENWEATHERMAP_KEY);
-        if ((null != k) && (k.trim().length() > 0))
+        if ((null != k) && (k.trim().length() > 0)) {
             appId = k;
-        else
+            logger.info("OPENWEATHERMAP_KEY set");
+        } else {
             appId = "abc123";
+            logger.warning("OPENWEATHERMAP_KET not set");
+        }
     }
 
     public List<Weather> getWeather(String city) {
 
         final String url = UriComponentsBuilder
                 .fromUriString(URL_WEATHER)
-                .queryParam("q", city)
+                .queryParam("q", city.trim().replace(" ", "+"))
                 .queryParam("appid", appId)
                 .queryParam("units", "metric")
                 .toUriString();
@@ -79,8 +79,9 @@ public class WeatherService {
                 })
                 .collect(Collectors.toList());
 
-        } catch (Exception ex) { }
-
+        } catch (Exception ex) { 
+            ex.printStackTrace();
+        }
         
         return Collections.EMPTY_LIST;
     }
