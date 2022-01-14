@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,9 @@ public class WeatherService {
     private final Logger logger = Logger.getLogger(Day18Application.class.getName());
 
     private final String appId;
+
+    @Autowired
+    private WeatherCacheService weatherCacheService;
 
     public WeatherService() {
         String k = System.getenv(ENV_OPENWEATHERMAP_KEY);

@@ -1,7 +1,11 @@
 package ibf2021.ssf.weather.day18.models;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
 
 public class Weather {
 
@@ -42,6 +46,20 @@ public class Weather {
         w.setDescription(o.getString("description"));
         w.setIcon(o.getString("icon"));
         return w;
+    }
+    public static Weather create(String jsonString) {
+        try (InputStream is = new ByteArrayInputStream(jsonString.getBytes())) {
+            final JsonReader reader = Json.createReader(is);
+            return create(reader.readObject());
+        } catch (Exception ex) { }
+
+        // Need to handle error
+        return new Weather();
+    }
+
+    @Override
+    public String toString() {
+        return this.toJson().toString();
     }
 
     public JsonObject toJson() {
