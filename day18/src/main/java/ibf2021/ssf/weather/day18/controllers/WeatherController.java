@@ -41,11 +41,14 @@ public class WeatherController {
 
         List<Weather> weatherList = Collections.EMPTY_LIST;
 
-        if (opt.isPresent()) 
+        if (opt.isPresent()) {
+            logger.info("Cache hit for %s".formatted(city));
             weatherList = opt.get();
-        else
+        } else
             try {
                 weatherList = weatherSvc.getWeather(city);
+                if (weatherList.size() > 0)
+                    weatherCacheSvc.save(city, weatherList);
             } catch (Exception ex) {
                 logger.log(Level.WARNING, "Warning: %s".formatted(ex.getMessage()));
             }

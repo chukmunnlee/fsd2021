@@ -26,10 +26,10 @@ public class Weather {
     public String getDescription() { return this.description; }
     public void setDescription(String description) { this.description = description; }
 
-    public String getIcon() { return this.icon; }
-    public void setIcon(String icon) { 
-        this.icon = "http://openweathermap.org/img/wn/%s@2x.png".formatted(icon);
+    public String getIcon() { 
+        return "http://openweathermap.org/img/wn/%s@2x.png".formatted(icon);
     }
+    public void setIcon(String icon) { this.icon = icon; }
 
     public Float getTemperature() { return this.temperature; }
     public void setTemperature(Float temperature) { this.temperature = temperature; }
