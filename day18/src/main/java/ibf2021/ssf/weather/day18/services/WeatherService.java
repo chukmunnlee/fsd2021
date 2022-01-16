@@ -32,9 +32,6 @@ public class WeatherService {
 
     private final String appId;
 
-    @Autowired
-    private WeatherCacheService weatherCacheService;
-
     public WeatherService() {
         String k = System.getenv(ENV_OPENWEATHERMAP_KEY);
         if ((null != k) && (k.trim().length() > 0)) {
