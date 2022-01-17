@@ -8,7 +8,7 @@ public class Constants {
     public static final String ENV_REDIS_PASSWORD = "REDIS_PASSWORD";
 
     public static final String BEAN_WEATHER_CACHE = "weather_cache";
-    public static final String BEAN_WEATHER_SERVICE = "caching_service";
+    public static final String BEAN_WEATHER_SERVICE = "weather_service";
     public static final String BEAN_CACHING_WEATHER_SERVICE = "caching_weather_service";
     
 }
