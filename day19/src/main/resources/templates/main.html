@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=`, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row mt-5 mb-3">
+                <div class="col d-flex justify-content-center">
+                    <h1>Random Marvel Characters</h1>
+                </div>
+            </div>
+
+            <div class="row" data-th-each="c: ${characters}">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img data-th-src="${c.image}" class="card-image-top">
+                        <div class="card-body">
+                            <h4 class="card-title" data-th-text="${c.name}"></h4>
+                            <a data-th-href="${c.details}" class="btn btn-primary" target="_blank">
+                                Comics
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </body>
+</html>
