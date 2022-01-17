@@ -45,6 +45,12 @@ public class Weather {
         w.setMain(o.getString("main"));
         w.setDescription(o.getString("description"));
         w.setIcon(o.getString("icon"));
+        if (o.containsKey("cityName"))
+            w.setCityName(o.getString("cityName"));
+        if (o.containsKey("temperature")) {
+            double temp = o.getJsonNumber("temperature").doubleValue();
+            w.setTemperature((float)temp);
+        }
         return w;
     }
     public static Weather create(String jsonString) {
@@ -59,7 +65,8 @@ public class Weather {
 
     @Override
     public String toString() {
-        return this.toJson().toString();
+        return "cityName: %s, main: %s, description: %s, icon: %s, temperature: %f"
+                .formatted(cityName, main, description, icon, temperature);
     }
 
     public JsonObject toJson() {
