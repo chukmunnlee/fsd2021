@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Search result</title>
+	</head>
+	<body>
+
+		<h2>Search result for <code data-th-text="${title}"></code> </h2>
+
+		<h2 data-th-if="${error != null}">
+			Search Error <span data-th-text=${error}></span>
+		</h2>
+
+		<div data-th-each="item, status: ${books}">
+			<a data-th-href="@{/book/{key}(key = ${item.key})}">
+				<span data-th-text="${item.title}"></span>
+			</a>
+		</div>
+
+		<h3> <a data-th-href="@{/}">Back</a> </h3>
+
+	</body>
+</html>

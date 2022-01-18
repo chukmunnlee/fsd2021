@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Book Details</title>
+		<link rel="stylesheet" href="/book-details.css">
+	</head>
+	<body>
+
+		<h2>Book Details</h2>
+
+		<h2 data-th-if="${null != error}">
+			Error <span data-th-text=${error}></span>
+		</h2>
+
+		<div class="side-by-side" data-th-if="${null == error}">
+			<div>
+				<img data-th-src="${book.cover}" alt="">
+			</div>
+			<div>
+				<table>
+					<tr>
+						<td>Title</td>
+						<td data-th-text="${book.title}"></td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td data-th-text="${book.description}"></td>
+					</tr>
+					<tr>
+						<td>Excerpt</td>
+						<td> <i data-th-text="${book.excerpt}"></i> </td>
+					</tr>
+					<tr>
+						<td>Cached</td>
+						<td> <i data-th-text="${book.cached}"></i> </td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<h3> <a data-th-href="@{/}">Back</a> </h3>
+
+	</body>
+</html>

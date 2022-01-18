@@ -1,0 +1,7 @@
+.center-it {
+	margin-top: 20vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2em;
+}
