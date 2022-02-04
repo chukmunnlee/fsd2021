@@ -1,0 +1,50 @@
+<form [formGroup]="form" (ngSubmit)="processForm()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td> <input type="text" [formControlName]="nameField" name="name"> </td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td> <input type="email" [formControl]="emailCtrl" name="email"> </td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input type="radio" value="female" formControlName="gender"> Female
+        <input type="radio" value="male" formControlName="gender"> Male
+      </td>
+    </tr>
+    <tr>
+      <td>Hobbies:</td>
+      <td formArrayName="hobbies">
+        <span *ngFor="let ctrl of hobbiesArray.controls; let i = index">
+          <input type="checkbox" [formControl]="ctrl"> {{ hobbies[i] }}
+        </span>
+      </td>
+      <!--
+      <td formArrayName="hobbies">
+        <span *ngFor="let h of hobbies; let i = index">
+          <input type="checkbox" [formControl]="hobbiesArray.controls[i]"> {{ h }} - {{ i }}
+        </span>
+      </td>
+      -->
+    </tr>
+    <tr>
+      <td>Events:</td>
+      <td>
+        pristine: {{ form.pristine }},
+        dirty: {{ form.dirty }},
+        touched: {{ form.touched }},
+        valid: {{ form.valid }},
+        invalid: {{ form.invalid }}
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit" [disabled]="form.invalid">Add</button>
+      </td>
+    </tr>
+  </table>
+</form>
