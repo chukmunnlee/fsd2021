@@ -4,15 +4,17 @@
   <table>
     <tr>
       <td>Name:</td>
-      <td> <input type="text" size="30" formControlName="name"> </td>
+      <td> <input type="text" size="30" [formControlName]="'name'"> </td>
     </tr>
     <tr>
       <td>Address:</td>
       <td> <input type="text" size="30" formControlName="address"> </td>
     </tr>
     <tr>
-      <td>Phone:</td>
-      <td> <input type="tel" size="30" formControlName="phone"> </td>
+      <td>
+        <label for="phone">Phone:</label>
+      </td>
+      <td> <input type="tel" id="phone" size="30" formControlName="phone"> </td>
     </tr>
     <tr>
       <td>Delivery:</td>
@@ -32,7 +34,7 @@
     <tr>
       <td></td>
       <td>
-        <button type="button" (click)="addLineItem()">Add item</button>
+        <button type="button" (click)="addLineItem()" #submitButton>Add item</button>
       </td>
     </tr>
   </table>
@@ -66,5 +68,7 @@
   <button type="submit" [disabled]="!isValid()">
     Place Order
   </button>
+
+  <ng-content></ng-content>
 
 </form>

@@ -1,0 +1,18 @@
+.mybox {
+	width: 50vw;
+	height: 5vh;
+	border: black 2px solid;
+	background-color: grey;
+	margin: 10px;
+	transition-duration: 300ms;
+	transition-timing-function: linear;
+	transition-property: border, background-color, border-radius
+
+}
+
+/* pseudo class */
+.mybox:hover {
+	border: red 2px solid;
+	background-color: pink;
+	border-radius: 20px;
+}
