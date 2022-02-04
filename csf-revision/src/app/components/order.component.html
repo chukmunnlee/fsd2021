@@ -1,0 +1,70 @@
+<h1>Order</h1>
+
+<form [formGroup]="orderForm" (ngSubmit)="processOrder()">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td> <input type="text" size="30" formControlName="name"> </td>
+    </tr>
+    <tr>
+      <td>Address:</td>
+      <td> <input type="text" size="30" formControlName="address"> </td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td> <input type="tel" size="30" formControlName="phone"> </td>
+    </tr>
+    <tr>
+      <td>Delivery:</td>
+      <td>
+        <select formControlName="delivery">
+          <option value="normal">Normal</option>
+          <option value="rush">Rush</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Comments:</td>
+      <td>
+        <textarea cols="40" rows="3" formControlName="comments"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="button" (click)="addLineItem()">Add item</button>
+      </td>
+    </tr>
+  </table>
+
+  <h3 *ngIf="lineItemsArray.controls.length <= 0">
+    You do not have any items in your order
+  </h3>
+
+  <table style="margin-top:5vh; margin-bottom: 2vh;" *ngIf="lineItemsArray.controls.length > 0">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody formArrayName="lineItems">
+      <tr *ngFor="let lineGrp of lineItemsArray.controls; let i = index" [formGroup]="lineGrp">
+        <td>
+          <input type="text" size="50" formControlName="description">
+        </td>
+        <td>
+          <input type="number" min="1" value="1" formControlName="quantity">
+        </td>
+        <td>
+          <button type="button" (click)="deleteLineItem(i)">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="submit" [disabled]="!isValid()">
+    Place Order
+  </button>
+
+</form>

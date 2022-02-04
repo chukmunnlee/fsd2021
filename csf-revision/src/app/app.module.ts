@@ -4,11 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register.component';
+import { OrderComponent } from './components/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
