@@ -1,17 +1,17 @@
 <h1>Registration</h1>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="processForm()">
   <table>
     <tr>
       <td>Name:</td>
       <td>
-        <input type="text" size="30">
+        <input type="text" size="30" formControlName="name">
       </td>
     </tr>
     <tr>
       <td>Email:</td>
       <td>
-        <input type="email" size="30">
+        <input type="email" size="30" formControlName="email">
       </td>
     </tr>
     <tr>
