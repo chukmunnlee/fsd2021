@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
+import { CustomerService } from '../customer.service';
 import { Customer } from '../models';
 
 @Component({
@@ -12,15 +13,13 @@ export class CustomerComponent implements OnInit {
 
   customer!: Customer
 
-  constructor(private http: HttpClient) { }
+  constructor(private customerSvc: CustomerService) { }
 
   ngOnInit(): void {
-    lastValueFrom(
-      this.http.get<Customer>('http://localhost:8080/api/customer')
-    ).then(result => {
-      console.info('>>> result = ', result)
-      this.customer = result
-    })
+    this.customerSvc.getCustomer()
+      .then(result => {
+        this.customer = result
+      })
   }
 
 }

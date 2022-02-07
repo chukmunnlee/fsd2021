@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './components/customer.component';
+import { CustomerService } from './customer.service';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { CustomerComponent } from './components/customer.component';
   imports: [
     BrowserModule, HttpClientModule
   ],
-  providers: [],
+  providers: [ CustomerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
