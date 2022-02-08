@@ -7,11 +7,16 @@ import { MainComponent } from './components/main.component';
 import { OneComponent } from './components/one.component';
 import { NumberComponent } from './components/number.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NumberGuardService } from './number-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'one', component: OneComponent },
-  { path: 'number/:num', component: NumberComponent },
+  {
+    path: 'number/:num', component: NumberComponent,
+    canActivate: [ NumberGuardService ],
+    canDeactivate: [ NumberGuardService ]
+  },
   { path: '**', redirectTo: '/one', pathMatch: 'full' }
 ]
 
@@ -25,7 +30,7 @@ const appRoutes: Routes = [
     FormsModule, ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ NumberGuardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,23 @@
 <h2>This is {{ num }}</h2>
 
 <div>
-  <img src="assets/numbers/number{{ num }}.jpg" height="400">
+  <table>
+    <tr>
+      <td> <img src="assets/numbers/number{{ num }}.jpg" height="300"> </td>
+      <td>
+        <form [formGroup]="form" (ngSubmit)="reset()">
+          <label for="comments">Comments</label>
+          <div>
+            <textarea id="comments" cols="30" rows="5" formControlName="comments"></textarea>
+          </div>
+          <button type="submit">Add</button>
+        </form>
+      </td>
+    </tr>
+
+  </table>
 </div>
 
 <div>
-  <button type="button" [routerLink]="['']"></button>
+  <button type="button" [routerLink]="['']">Back</button>
 </div>
