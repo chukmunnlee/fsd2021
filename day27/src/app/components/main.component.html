@@ -1,0 +1,22 @@
+<h1>Welcome!</h1>
+
+<div>
+  <form [formGroup]="form" (ngSubmit)="go()">
+    <select formControlName="startFrom">
+      <option *ngFor="let i of numArr" [value]="i"> {{ i }}</option>
+    </select>
+
+    <div>
+      <button type="submit">Go</button>
+    </div>
+
+  </form>
+
+</div>
+
+<ul>
+  <li *ngFor="let i of numArr">
+    <a [routerLink]="['/number', i]">{{ i }}</a>
+  </li>
+
+</ul>
