@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { useHash: true })
   ],
   providers: [ WeatherService ],
   bootstrap: [AppComponent]

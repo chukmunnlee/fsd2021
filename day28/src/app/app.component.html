@@ -1,0 +1,38 @@
+<h1>My Todo</h1>
+
+<form [formGroup]="form" (ngSubmit)="add()">
+  <table>
+    <tr>
+      <td><label for="title">Title</label></td>
+      <td><input type="text" id="title" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td><label for="description">Description</label></td>
+      <td><input type="text" id="description" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td><label for="priority">Priority</label></td>
+      <td>
+        <select id="prority" formControlName="priority">
+          <option value="low">Low</option>
+          <option value="med">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </td>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit">Add</button>
+        </td>
+      </tr>
+  </table>
+
+</form>
+
+<hr>
+
+<button type="button" (click)="getAllTitles()">List Titles</button>
+
+<ul>
+  <li *ngFor="let t of titles"> {{ t | uppercase }}</li>
+</ul>
