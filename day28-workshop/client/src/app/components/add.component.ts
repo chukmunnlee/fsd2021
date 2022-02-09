@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import {Router} from '@angular/router';
-import {TodoService} from '../todo.service';
+import {TodoGuard} from '../models';
+import {TodoService} from '../services/todo.service';
 import {TodoComponent} from './todo.component';
 
 @Component({
@@ -8,7 +9,7 @@ import {TodoComponent} from './todo.component';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent implements OnInit, AfterViewInit {
+export class AddComponent implements OnInit, TodoGuard {
 
 	@ViewChild(TodoComponent)
 	todoComponent!: TodoComponent
@@ -22,10 +23,14 @@ export class AddComponent implements OnInit, AfterViewInit {
 	addTodo() {
 		const todo = this.todoComponent.getValue()
 		this.todoSvc.addTodo(todo)
-			.then(() => this.router.navigate(['/']))
+			.then(() => {
+				this.todoComponent.resetForm()
+				this.router.navigate(['/'])
+			})
 	}
 
-	ngAfterViewInit() {
+	evaluate() {
+		return this.todoComponent.evaluate()
 	}
 
 	formValidity(v: boolean) {

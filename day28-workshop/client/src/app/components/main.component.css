@@ -1,0 +1,12 @@
+.item {
+	margin-bottom: 5px;
+	font-size: 1.2em;
+	transition-property: background-color;
+	transition-timing-function: linear;
+	transition-duration: 200ms;
+	padding: 2px;
+}
+
+.item:hover {
+	background-color: lightgrey;
+}

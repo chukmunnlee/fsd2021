@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {TodoSummary} from '../models';
-import {TodoService} from '../todo.service';
+import {TodoService} from '../services/todo.service';
 
 @Component({
   selector: 'app-main',

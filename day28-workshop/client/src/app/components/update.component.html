@@ -1,1 +1,14 @@
-<p>update works!</p>
+
+<h2>Todo: <code> {{ tid }} </code> </h2>
+
+<app-todo [todo]="todo" (valid)="formValidity($event)">
+	<div class="justify-right">
+		<button type="button" (click)="deleteTodo()">
+			Delete
+		</button>
+		<button type="button" [disabled]="!valid" (click)="updateTodo()">
+			Update
+		</button>
+		<button type="button" [routerLink]="['/']">Back</button>
+	</div>
+</app-todo>
