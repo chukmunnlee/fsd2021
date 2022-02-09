@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.justify-right {
+	display: flex;
+	justify-content: end;
+}
+
+.space-around {
+	padding: 10px;
+	margin: 20px;
+}

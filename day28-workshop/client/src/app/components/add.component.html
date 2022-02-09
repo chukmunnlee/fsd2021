@@ -1,0 +1,11 @@
+<h2>Add a New Todo</h2>
+
+<div class="space-around">
+	<app-todo (valid)="formValidity($event)">
+		<div class="justify-right">
+			<button type="button" [disabled]="!valid" (click)="addTodo()">
+				Add
+			</button>
+		</div>
+	</app-todo>
+</div>

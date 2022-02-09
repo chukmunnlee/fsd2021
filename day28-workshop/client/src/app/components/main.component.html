@@ -1,0 +1,15 @@
+
+<div class="justify-right">
+	<button [routerLink]="['/add']">Add</button>
+</div>
+
+<div *ngIf="summary.length > 0">
+	<h2>List of Todos</h2>
+	<div *ngFor="let t of summary" [routerLink]="['/todo', t.tid]" class="item">
+		{{ t.title }}
+	</div>
+</div>
+
+<div *ngIf="summary.length <= 0">
+	<h2>You have no todos. Lucky you!</h2>
+</div>
