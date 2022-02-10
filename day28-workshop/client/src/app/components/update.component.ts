@@ -49,8 +49,8 @@ export class UpdateComponent implements OnInit, AfterViewInit, TodoGuard {
 
 	deleteTodo() {
 		this.todoSvc.deleteTodoById(this.tid)
-			//.then(this.clearAndGoBack.bind(this))
-			.then(this.clearAndGoBack)
+			.then(this.clearAndGoBack.bind(this))
+			//.then(this.clearAndGoBack)
       /*.then(() => {
         console.info('In delete Todo')
         this.todoComponent.resetForm()
