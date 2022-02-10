@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BehaviorSubject, Subscription} from 'rxjs';
+import {BehaviorSubject, map, Subscription} from 'rxjs';
 import {Todo, TodoGuard} from '../models';
 
 @Component({
@@ -38,12 +38,17 @@ export class TodoComponent implements OnInit, OnDestroy, TodoGuard {
 			priority: this.fb.control(t.priority || 'low')
 		})
 
-		this.sub$ = this.form.statusChanges.subscribe(
-			s => {
-        console.info('>>> s: ', s)
-        this.valid.next(s.toLowerCase() == 'valid')
-      }
-		)
+		this.sub$ = this.form.statusChanges
+        .pipe(
+          map(v => v.toLowerCase() == 'valid')
+        )
+        .subscribe(
+          s => {
+            console.info('>>> s: ', s)
+            //this.valid.next(s.toLowerCase() == 'valid')
+            this.valid.next(s)
+          }
+      )
 	}
 
 	getValue(): Todo {

@@ -11,3 +11,14 @@ export interface Todo extends TodoSummary {
 export interface TodoGuard {
 	evaluate(): boolean
 }
+
+export class TodoImpl implements Todo {
+
+	tid!: string
+	title!: string
+	description!: string
+	priority!: string
+
+  constructor() { }
+
+}
