@@ -1,0 +1,8 @@
+<h3>Search term: {{ q }}</h3>
+
+{{#each gifs}}
+    <div style="border: 1px lightgrey solid; padding: 10px; margin: 5px;">
+        <h5><code>{{ this.title }}</code></h5>
+        <img src="{{ this.imageUrl }}" alt="">
+    </div>
+{{/each}}

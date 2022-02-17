@@ -1,8 +1,15 @@
 // Load the required libraries
 const express = require('express')
 const { engine } =  require('express-handlebars')
+const fetch = require('node-fetch')
+const withQuery = require('with-query').default
+
 //const cust = require('./customers')
 const { processCustomer, checkCustomerValidity  } = require('./customers')
+
+// configure the environment
+const PORT = parseInt(process.env.PORT) || 3000
+const GIPHY_KEY = process.env.GIPHY_KEY
 
 // Create an instance of the express applicatin
 const app = express()
@@ -47,6 +54,39 @@ app.get(['/time'],
     }
 )
 
+app.get('/search-giphy',
+    (req, resp) => {
+
+        // construct the URL
+        const url = withQuery('https://api.giphy.com/v1/gifs/search', {
+            api_key: GIPHY_KEY,
+            q: req.query.q,
+            limit: 10
+        })
+        fetch(url)
+            .then(result => result.json())
+            .then(result => {
+                const gifs = result.data.map(d => {
+                    return {
+                        title: d.title, 
+                        imageUrl: d.images.fixed_height.url
+                    }
+                })
+                console.info(">>> gifs: ", gifs)
+                resp.status(200).type('text/html')
+                resp.render('giphy', {
+                    q: req.query.q,
+                    gifs
+                })
+            })
+            .catch(err => {
+                resp.status(400).type('text/html')
+                resp.send('error: ' + JSON.stringify(err))
+            })
+
+    }
+)
+
 //app.use(express.urlencoded({ extended: true }))
 app.post("/register",
     express.urlencoded({ extended: true }),
@@ -69,7 +109,10 @@ app.use((req, resp) => {
 })
 
 // Start the server
-app.listen(3000, () => {
-    console.info(`Application started on port 3000 at ${new Date()}`)
-    console.info(`Express is running in __dirname = ${__dirname}`)
-})
+if (!!GIPHY_KEY)
+    app.listen(PORT, () => {
+        console.info(`Application started on port ${PORT} at ${new Date()}`)
+        console.info(`Express is running in __dirname = ${__dirname}`)
+    })
+else
+    console.error('GIPHY_KEY not set')
