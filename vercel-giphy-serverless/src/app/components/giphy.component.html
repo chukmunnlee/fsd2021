@@ -1,1 +1,8 @@
 <h2>Giphy for <code>{{ q }}</code></h2>
+
+<div *ngFor="let g of gifs">
+  <h2>{{ g.title }}</h2>
+  <div>
+    <img [src]="g.imageUrl" alt="">
+  </div>
+</div>
