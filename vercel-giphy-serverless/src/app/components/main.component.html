@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="search()">
+	<table>
+		<tr>
+			<td>Search:</td>
+			<td>
+				<input type="text" size="40" formControlName="q">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button type="submit">Search</button>
+			</td>
+		</tr>
+	</table>
+</form>
