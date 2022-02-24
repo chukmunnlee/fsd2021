@@ -1,0 +1,22 @@
+<div>
+	<button type="button" [routerLink]="['/add']">
+		Add
+	</button>
+</div>
+
+<hr>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Task Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let t of tasks">
+			<td>{{ t.username }}</td>
+			<td>{{ t.taskName }}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,42 @@
+<h2>Create New Task</h2>
+
+<hr>
+
+<form [formGroup]="form" (ngSubmit)="addTask()">
+	<table>
+		<tr>
+			<td>Task Name:</td>
+			<td>
+				<input type="text" size="30" formControlName="taskName">
+			</td>
+		</tr>
+		<tr>
+			<td>Username:</td>
+			<td>
+				<input type="text" size="30" formControlName="username">
+			</td>
+		</tr>
+		<tr>
+			<td>Priority</td>
+			<td>
+				<select formControlName="priority">
+					<option value="low" selected>Low</option>
+					<option value="med">Medium</option>
+					<option value="high">High</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Due Date</td>
+			<td>
+				<input type="date" formControlName="dueDate">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<button type="submit">Add</button>
+			</td>
+		</tr>
+	</table>
+</form>
