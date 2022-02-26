@@ -1,0 +1,22 @@
+<h2>Purchase Order Values</h2>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Order Id</th>
+			<th>Name</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let p of pos">
+			<td>{{ p.orderId }}</td>
+			<td>{{ p.name }}</td>
+			<td>{{ p.total }}</td>
+		</tr>
+	</tbody>
+</table>
+
+<button type="button" [routerLink]="['/add']">
+	New Purchase Order
+</button>

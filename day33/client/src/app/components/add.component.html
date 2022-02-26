@@ -1,0 +1,57 @@
+<h2>Create Purchase Order</h2>
+
+<form [formGroup]="po" (ngSubmit)="placeOrder()">
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td>
+				<input type="text" size="40" formControlName="name">
+			</td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td>
+				<input type="email" size="40" formControlName="email">
+			</td>
+			<td>
+				<button type="button" (click)="addLineItem()">Add Item</button>
+			</td>
+		</tr>
+	</table>
+
+	<table *ngIf="lineItems.length > 0">
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>Quantity</th>
+				<th>Unit Price</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody formArray="lineItems">
+			<tr *ngFor="let li of lineItems.controls; let i = index" [formGroup]="li">
+				<td>
+					<input type="text" size="30" formControlName="description">
+				</td>
+				<td>
+					<input type="number" min="1" formControlName="quantity">
+				</td>
+				<td>
+					<input type="number" min=".01" formControlName="unitPrice">
+				</td>
+				<td>
+					<button type="button" (click)="deleteLineItem(i)">X</button>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>
+					<button type="submit" [disabled]="po.invalid">
+						Place Order
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
