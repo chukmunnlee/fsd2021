@@ -1,0 +1,16 @@
+<div class="row mt-4">
+	<div class="col d-flex justify-content-center" style="border: 1px solid gray">
+		<webcam [width]="500" [height]="500"
+		 [imageQuality]=".7" [captureImageData]="true"
+				[trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+				(initError)="webcamInitError($event)">
+		</webcam>
+	</div>
+</div>
+<div class="row mt-2">
+	<div class="col d-flex justify-content-end">
+		<button type="button" class="btn btn-warning btn-lg" (click)="snap()">
+			Snap
+		</button>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+
+<div class="row mt-4">
+	<img [src]="imageData" class="img-thumbnail">
+</div>
+<div class="row mt-2">
+	<div class="col">
+		<form [formGroup]="form" (ngSubmit)="post()">
+			<div class="mb-1">
+				<label for="poster">Poster</label>
+				<input id="poster" type="text" class="form-control" formControlName="poster">
+			</div>
+			<div class="mb-1">
+				<label for="comments">Comments</label>
+				<textarea id="comments" class="form-control" name="" cols="30" rows="10" formControlName="comments">
+				</textarea>
+			</div>
+			<div class="mb-5 mt-2 d-flex justify-content-around">
+				<button type="button" class="btn btn-danger btn-lg" [routerLink]="['/']">
+					Back
+				</button>
+				<button type="submit" class="btn btn-primary btn-lg">Post</button>
+			</div>
+		</form>
+	</div>
+</div>
