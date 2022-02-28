@@ -1,10 +1,12 @@
 <div class="container">
 	<div class="row mt-4">
 		<div class="col" style="border: black 1px solid;">
-			<webcam [width]="400" [height]="400"  [imageQuality]="1"
+			<webcam [width]="400" [height]="400"
+          [imageQuality]="1" [captureImageData]="true"
 					[trigger]="triggerObservable" (imageCapture)="handleImage($event)"
 					(initError)="webcamInitError($event)">
 			</webcam>
+      <img [src]="imageData" width="150px">
 		</div>
 	</div>
 	<div class="row mt-2">

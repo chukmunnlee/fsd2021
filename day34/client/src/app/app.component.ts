@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
 	form!: FormGroup
 	private _trigger$ = new Subject<void>();
 
+  imageData = '';
+
 	get triggerObservable() {
 		return this._trigger$.asObservable()
 	}
@@ -29,6 +31,8 @@ export class AppComponent implements OnInit {
 
 	handleImage(img: WebcamImage) {
 		console.info('img = ', img)
+		console.info('buffer = ', img.imageData)
+    this.imageData = img.imageAsDataUrl;
 	}
 	webcamInitError(error: any) {
 		console.error('error = ', error)
