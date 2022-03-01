@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("assets/bootstrap-grid.min.css");
+@import url("assets/bootstrap-utilities.min.css");
+@import url("assets/chessboard.css");
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

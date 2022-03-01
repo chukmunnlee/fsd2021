@@ -53,7 +53,7 @@ public class PostS3RestController {
 		metadata.setContentLength(buff.length);
 
 		try {
-			PutObjectRequest putReq = new PutObjectRequest("ibf2021-paf", uuid, 
+			PutObjectRequest putReq = new PutObjectRequest("ibf2021-paf", "%s/images/%s".formatted(poster, uuid), 
 					image.getInputStream(), metadata);
 			putReq.setCannedAcl(CannedAccessControlList.PublicRead);
 			s3.putObject(putReq);

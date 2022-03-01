@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="joinGame()">
+	<div class="d-flex align-items-center">
+		<div class="row">
+			<div class="col">
+				<button type="button" mat-raised-button color="warn" (click)="createGame()">
+					Create
+				</button>
+			</div>
+			<div class="col">
+				<mat-form-field class="w-100">
+					<mat-label>Open Games</mat-label>
+					<mat-select formControlName="gameId">
+						<mat-option *ngFor="let gid of gameIds" [value]="gid">
+							<code> {{ gid }} </code>
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="col">
+				<button type="button" mat-icon-button color="accent" (click)="refresh()">
+					<mat-icon>refresh</mat-icon>
+				</button>
+			</div>
+			<div class="col">
+				<button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+					Join
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
