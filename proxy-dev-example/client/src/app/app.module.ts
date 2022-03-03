@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
@@ -10,7 +10,9 @@ import {GameService} from './game.service';
     AppComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule.withServerTransition({ appId: 'myapp' }), 
+	  BrowserTransferStateModule,
+	  HttpClientModule
   ],
   providers: [ GameService ],
   bootstrap: [AppComponent]
