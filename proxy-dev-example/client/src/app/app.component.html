@@ -1,0 +1,8 @@
+<h1>List of Boardgames</h1>
+
+<table>
+	<tr *ngFor="let g of games">
+		<td> {{ g.name }} </td>
+		<td> <img [src]="g.image" alt=""> </td>
+	</tr>
+</table>
